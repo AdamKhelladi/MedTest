@@ -9,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Button from "../Components/Button/page";
 
 const dropdownMenuItems = [
   {
@@ -19,7 +20,7 @@ const dropdownMenuItems = [
   {
     id: 2,
     title: "SELECT LEVEL",
-    options: ["Beginner", "Intermediate", "Advanced"],
+    options: ["Easy", "Medium", "Hard"],
   },
   {
     id: 3,
@@ -30,30 +31,30 @@ const dropdownMenuItems = [
 
 export default function page() {
   return (
-    <div className="min-h-screen flex justify-center items-center flex-col gap-16 bg-[#111]">
+    <div className="min-h-screen flex justify-center items-center flex-col gap-16 bg-gray-50">
       <Container>
         <section className="flex flex-col justify-center items-center text-center mb-10 gap-6 px-4">
-          <h1 className="text-3xl font-extrabold mb-[-10px] text-white mb-8 md:text-4xl lg:text-5xl">
-            Welcome to MCQ TEST
+          <h1 className="text-3xl font-extrabold md:text-4xl lg:text-5xl text-gray-900">
+            Welcome to <span className="text-cyan-600">MCQs </span>TEST
           </h1>
-          <p className="text-1xl font-medium text-[#ccc]">
+          <p className="text-base font-medium text-gray-600 max-w-xl">
             An interactive MCQ platform designed to help you practice, assess,
             and improve your skills efficiently.
           </p>
         </section>
 
-        <div className="bg-[#222] p-8 rounded-lg flex flex-col gap-8 shadow-lg">
-          <div className="gap-8">
+        <div className="bg-white p-8 rounded-xl flex flex-col gap-8 shadow-md border border-gray-200">
+          <div>
             <label
               htmlFor="number_of_questions"
-              className="block mb-2.5 text-1xl font-bold text-white"
+              className="block mb-2 text-base font-semibold text-gray-800"
             >
               Number of Questions
             </label>
             <input
               type="number"
               id="number_of_questions"
-              className="outline-0 border-2 rounded-xl duration-400 w-full h-12 p-2 border-[#333] placeholder:text-[#777] bg-[#333] text-white focus:border-[#555]"
+              className="w-full h-12 px-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-gray-500 transition"
               defaultValue={10}
               min={0}
               max={50}
@@ -62,24 +63,24 @@ export default function page() {
             />
           </div>
 
-          <div className="border border-[#333] rounded-xl p-4 flex justify-evenly items-center">
+          <div className="border border-gray-200 rounded-xl p-4 flex flex-col gap-2 bg-gray-50 md:flex-row md:justify-between md:items-center">
             {dropdownMenuItems.map((menu) => (
               <DropdownMenu key={menu.id}>
-                <DropdownMenuTrigger className="outline-0 cursor-pointer bg-[#333] border border-[#333] rounded-lg px-4 py-3 text-white hover:bg-[#222] transition">
+                <DropdownMenuTrigger className="cursor-pointer bg-white border border-gray-300 rounded-lg px-4 py-2 text-gray-800 hover:bg-gray-100 transition">
                   {menu.title}
                 </DropdownMenuTrigger>
 
-                <DropdownMenuContent className="bg-[#2a2a2a] text-white border border-[#444] rounded-lg p-1 shadow-xl">
-                  <DropdownMenuLabel className="px-3 py-2 text-sm text-[#aaa]">
+                <DropdownMenuContent className="bg-white text-gray-800 border border-gray-200 rounded-lg p-1 shadow-lg">
+                  <DropdownMenuLabel className="px-3 py-2 text-sm text-gray-500">
                     {menu.title}
                   </DropdownMenuLabel>
 
-                  <DropdownMenuSeparator className="bg-[#444]" />
+                  <DropdownMenuSeparator className="bg-gray-200" />
 
                   {menu.options.map((option, index) => (
                     <DropdownMenuItem
                       key={index}
-                      className="text-white px-4 py-2 cursor-pointer rounded-md hover:bg-[#444] focus:bg-[#444] data-[highlighted]:bg-[#444] data-[highlighted]:text-white"
+                      className="px-4 py-2 rounded-md cursor-pointer text-gray-800 hover:bg-gray-100 focus:bg-gray-100 data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900"
                     >
                       {option}
                     </DropdownMenuItem>
@@ -88,6 +89,7 @@ export default function page() {
               </DropdownMenu>
             ))}
           </div>
+          <Button />
         </div>
       </Container>
     </div>

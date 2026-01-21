@@ -1,4 +1,6 @@
-import { title } from "process";
+"use client";
+
+import { MenuIcon } from "lucide-react";
 import Container from "../Components/Container/page";
 
 import {
@@ -9,7 +11,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
 import Button from "../Components/Button/page";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const dropdownMenuItems = [
   {
@@ -30,6 +35,14 @@ const dropdownMenuItems = [
 ];
 
 export default function page() {
+  const [selectedCategory, setSelectedCategory] = useState("SELECT CATEGORY");
+  const [selectedLevel, setSelectedLevel] = useState("SELECT LEVEL");
+  const [selectedType, setSelectedType] = useState("SELECT TYPE");
+
+  const [questionsCount, setQuestionsCount] = useState(10);
+
+  const router = useRouter();
+
   return (
     <div className="min-h-screen flex justify-center items-center flex-col gap-16 bg-gray-50">
       <Container>
@@ -55,8 +68,14 @@ export default function page() {
               type="number"
               id="number_of_questions"
               className="w-full h-12 px-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-gray-500 transition"
-              defaultValue={10}
-              min={0}
+              value={questionsCount}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                if (value >= 0 && value <= 50) {
+                  setQuestionsCount(value);
+                }
+              }}
+              min={1}
               max={50}
               placeholder="Enter number of questions (max 50)"
               required
@@ -67,7 +86,9 @@ export default function page() {
             {dropdownMenuItems.map((menu) => (
               <DropdownMenu key={menu.id}>
                 <DropdownMenuTrigger className="cursor-pointer bg-white border border-gray-300 rounded-lg px-4 py-2 text-gray-800 hover:bg-gray-100 transition">
-                  {menu.title}
+                  {menu.id === 1 && (selectedCategory ?? menu.title)}
+                  {menu.id === 2 && (selectedLevel ?? menu.title)}
+                  {menu.id === 3 && (selectedType ?? menu.title)}
                 </DropdownMenuTrigger>
 
                 <DropdownMenuContent className="bg-white text-gray-800 border border-gray-200 rounded-lg p-1 shadow-lg">
@@ -81,6 +102,11 @@ export default function page() {
                     <DropdownMenuItem
                       key={index}
                       className="px-4 py-2 rounded-md cursor-pointer text-gray-800 hover:bg-gray-100 focus:bg-gray-100 data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900"
+                      onClick={() => {
+                        if (menu.id == 1) setSelectedCategory(option);
+                        if (menu.id == 2) setSelectedLevel(option);
+                        if (menu.id == 3) setSelectedType(option);
+                      }}
                     >
                       {option}
                     </DropdownMenuItem>
@@ -89,7 +115,16 @@ export default function page() {
               </DropdownMenu>
             ))}
           </div>
-          <Button />
+          <Button
+            disabled={!selectedCategory || !selectedLevel || !selectedType}
+            onClick={() => {
+              router.push(
+                `/Mcqs?category=${selectedCategory}&level=${selectedLevel}&type=${selectedType}&questions=${questionsCount}`
+              );
+            }}
+          >
+            Start MCQ
+          </Button>
         </div>
       </Container>
     </div>

@@ -20,7 +20,7 @@ const dropdownMenuItems = [
   {
     id: 1,
     title: "SELECT CATEGORY",
-    options: ["Medicine", "Computer Science", "Math"],
+    options: ["Medicine", "Pharmacy", "Dentistry"],
   },
   {
     id: 2,

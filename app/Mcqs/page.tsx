@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import Container from "../Components/Container/page";
+import Container2 from "../Components/Container2/page";
 import Image from "next/image";
 
 import { Question, questionsData } from "../mcqOptions";
@@ -22,7 +22,7 @@ export default function page() {
   const category = params.get("category");
   const level = params.get("level");
   const type = params.get("type");
-  const questions = params.get("questions");
+  const questionsCount = params.get("questions");
 
   const mcqQuestions = getQuestions(category || "", level || "");
 
@@ -39,7 +39,7 @@ export default function page() {
 
   return (
     <div className="bg-gray-50 min-h-screen pt-8">
-      <Container>
+      <Container2>
         <div className="flex justify-between items-center text-white w-full bg-gradient-to-r from-blue-600 to-cyan-100 mt-0 p-4 rounded-lg shadow-md">
           <div>
             <h1 className="font-bold text-3xl mb-4">MCQs Page</h1>
@@ -87,7 +87,7 @@ export default function page() {
             </div>
           ))}
         </div>
-      </Container>
+      </Container2>
     </div>
   );
 }

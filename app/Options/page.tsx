@@ -20,7 +20,7 @@ const dropdownMenuItems = [
   {
     id: 1,
     title: "SELECT CATEGORY",
-    options: ["Medicine", "Science", "Math"],
+    options: ["Medicine", "Computer Science", "Math"],
   },
   {
     id: 2,
@@ -30,21 +30,21 @@ const dropdownMenuItems = [
   {
     id: 3,
     title: "SELECT TYPE",
-    options: ["Multiple Choice", "True/False"],
+    options: ["Multiple Choice"],
   },
 ];
 
-export default function page() {
-  const [selectedCategory, setSelectedCategory] = useState("SELECT CATEGORY");
-  const [selectedLevel, setSelectedLevel] = useState("SELECT LEVEL");
-  const [selectedType, setSelectedType] = useState("SELECT TYPE");
+export default function page() {      
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+  const [selectedType, setSelectedType] = useState<string | null>(null);
 
   const [questionsCount, setQuestionsCount] = useState(10);
 
   const router = useRouter();
 
   return (
-    <div className="min-h-screen flex justify-center items-center flex-col gap-16 bg-gray-50">
+    <div className="bg-gray-50 min-h-screen flex justify-center items-center flex-col gap-16 bg-gray-50">
       <Container>
         <section className="flex flex-col justify-center items-center text-center mb-10 gap-6 px-4">
           <h1 className="text-3xl font-extrabold md:text-4xl lg:text-5xl text-gray-900">
@@ -71,13 +71,13 @@ export default function page() {
               value={questionsCount}
               onChange={(e) => {
                 const value = Number(e.target.value);
-                if (value >= 0 && value <= 50) {
+                if (value >= 0 && value <= 20) {
                   setQuestionsCount(value);
                 }
               }}
               min={1}
-              max={50}
-              placeholder="Enter number of questions (max 50)"
+              max={20}
+              placeholder="Enter number of questions (max 20)"
               required
             />
           </div>
@@ -123,7 +123,7 @@ export default function page() {
               );
             }}
           >
-            Start MCQ
+            Start MCQ TEST
           </Button>
         </div>
       </Container>

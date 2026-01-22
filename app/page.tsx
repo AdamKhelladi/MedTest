@@ -41,22 +41,20 @@ export default function Home() {
         </div>
 
         <div className="py-20">
-          <h1 className="font-bold text-3xl text-sky-950 text-center">
+          <h1 className="font-bold text-3xl lg:text-5xl text-sky-950 text-center">
             Categories
           </h1>
-          <p className="text-sm text-gray-600 text-center">
+          <p className="text-sm lg:text-lg text-gray-600 text-center">
             Explore the available quiz categories
           </p>
 
-          <div></div>
+          <div>
+            <div>
+
+            </div>
+          </div>
         </div>
       </Container>
     </div>
   );
 }
-
-// <Link href={"/Options"}>
-//   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-//     Start Quiz
-//   </button>
-// </Link>

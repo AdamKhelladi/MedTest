@@ -47,7 +47,9 @@ export default function page() {
       }
     });
 
-    alert(`You scored ${score} out of ${mcqQuestions.length}`);
+    router.push(
+      `/Results?score=${score}&total=${mcqQuestions.length}&category=${category}&level=${level}`,
+    );
   };
 
   const allAnswersSelected =

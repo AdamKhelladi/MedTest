@@ -48,7 +48,7 @@ export default function page() {
       <Container>
         <section className="flex flex-col justify-center items-center text-center mb-10 gap-6 px-4">
           <h1 className="text-3xl font-extrabold md:text-4xl lg:text-5xl text-gray-900">
-            Welcome to <span className="text-cyan-600">MCQs </span>TEST
+            Welcome to <span className="text-sky-600">MCQs </span>TEST
           </h1>
           <p className="text-base font-medium text-gray-600 max-w-xl">
             An interactive MCQ platform designed to help you practice, assess,

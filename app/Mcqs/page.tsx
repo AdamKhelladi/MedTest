@@ -5,25 +5,27 @@ import Container2 from "../Components/Container2/page";
 import Image from "next/image";
 
 import { Question, questionsData } from "../mcqOptions";
-import { useState, useMemo } from "react";
-
+import { useState, useEffect } from "react";
 import Button from "../Components/Button/page";
+import { useRouter } from "next/router";
 
 export default function page() {
+  const router = useRouter();
+
   const params = useSearchParams();
 
   const category = params.get("category") || "";
   const level = params.get("level") || "";
   const questionsCount = Number(params.get("questions")) || 10;
 
-  // useMemo with your preferred sort shuffle
-  const mcqQuestions = useMemo(() => {
+  const [mcqQuestions, setMcqQuestions] = useState<Question[]>([]);
+
+  useEffect(() => {
     if (questionsData[category] && questionsData[category][level]) {
       const allQuestions = questionsData[category][level];
       const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
-      return shuffled.slice(0, questionsCount);
+      setMcqQuestions(shuffled.slice(0, questionsCount));
     }
-    return [];
   }, [category, level, questionsCount]);
 
   const [selectedAnswers, setSelectedAnswers] = useState<
@@ -36,6 +38,20 @@ export default function page() {
       [questionIndex]: option,
     }));
   };
+
+  const handleSubmit = () => {
+    let score = 0;
+    mcqQuestions.forEach((q, index) => {
+      if (selectedAnswers[index] === q.answer) {
+        score++;
+      }
+    });
+
+    alert(`You scored ${score} out of ${mcqQuestions.length}`);
+  };
+
+  const allAnswersSelected =
+    mcqQuestions.length === Object.keys(selectedAnswers).length;
 
   return (
     <div className="bg-gray-50 min-h-screen pt-8 md:pt-4">
@@ -59,7 +75,7 @@ export default function page() {
           {mcqQuestions.map((q: Question, qindex: number) => (
             <div key={qindex} className="mb-6">
               <div className="flex gap-3">
-                <svg
+                {/* <svg
                   className="w-4 h-4 mt-1 text-gray-800 dark:text-white"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +83,8 @@ export default function page() {
                   viewBox="0 0 10 16"
                 >
                   <path d="M3.414 1A2 2 0 0 0 0 2.414v11.172A2 2 0 0 0 3.414 15L9 9.414a2 2 0 0 0 0-2.828L3.414 1Z" />
-                </svg>
+                </svg> */}
+                <h2 className="font-semibold text-lg">{qindex + 1}.</h2>
                 <h2 className="font-semibold text-lg mb-2">{q.question}</h2>
               </div>
 
@@ -87,7 +104,9 @@ export default function page() {
             </div>
           ))}
 
-          <Button>Submit Answers</Button>
+          <Button disabled={!allAnswersSelected} onClick={handleSubmit}>
+            Submit Answers
+          </Button>
         </div>
       </Container2>
     </div>

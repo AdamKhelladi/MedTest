@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Question, questionsData } from "../mcqOptions";
 import { useState, useEffect } from "react";
 import Button from "../Components/Button/page";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function page() {
   const router = useRouter();

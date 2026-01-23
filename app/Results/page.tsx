@@ -5,9 +5,8 @@ import Container2 from "../Components/Container2/page";
 import Image from "next/image";
 import Button from "../Components/Button/page";
 import { useRouter } from "next/navigation";
-import { Suspense } from "react";
 
-function ResultsContent() {
+export default function page() {
   const params = useSearchParams();
   const router = useRouter();
 
@@ -31,7 +30,7 @@ function ResultsContent() {
         <div className="rounded-lg text-white w-full">
           <div className="mb-2 flex items-center gap-0 p-4 rounded-lg text-white w-full bg-gradient-to-r from-sky-900 to-cyan-400">
             <Image
-              src="/MedTest/images/award3.png"
+              src="/images/award3.png"
               alt="MCQ Image"
               width={80}
               height={80}
@@ -65,19 +64,5 @@ function ResultsContent() {
         </div>
       </Container2>
     </div>
-  );
-}
-
-export default function Page() {
-  return (
-    <Suspense
-      fallback={
-        <div className="flex justify-center items-center min-h-screen">
-          Loading...
-        </div>
-      }
-    >
-      <ResultsContent />
-    </Suspense>
   );
 }

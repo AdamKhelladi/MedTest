@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Logo */}
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
-              <img src="/MedTest/images/logo.png" className="h-7 md:h-10 me-3" alt="Logo" />
+              <img src="/images/logo.png" className="h-7 md:h-10 me-3" alt="Logo" />
               <span className="text-heading self-center text-2xl md:text-4xl font-semibold whitespace-nowrap">
                 MedTEST
               </span>

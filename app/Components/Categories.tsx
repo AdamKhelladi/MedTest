@@ -8,17 +8,17 @@ const categories = [
   {
     name: "Medicine",
     description: "Test your knowledge in various medical topics.",
-    imageUrl: "/MedTest/images/medicineLogo.png",
+    imageUrl: "/images/medicineLogo.png",
   },
   {
     name: "Pharmacy",
     description: "Explore questions related to pharmaceuticals.",
-    imageUrl: "/MedTest/images/phrmacyLogo.png",
+    imageUrl: "/images/phrmacyLogo.png",
   },
   {
     name: "Dentistry",
     description: "Challenge yourself with dental care questions.",
-    imageUrl: "/MedTest/images/dentistLogo.png",
+    imageUrl: "/images/dentistLogo.png",
   },
 ];
 

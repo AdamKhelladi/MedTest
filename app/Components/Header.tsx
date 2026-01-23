@@ -10,7 +10,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <Image
             className=""
-            src="/MedTest/images/logo.png"
+            src="/images/logo.png"
             alt="Logo"
             width={30}
             height={30}

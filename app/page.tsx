@@ -48,7 +48,7 @@ export default function Home() {
               </p>
             </div>
             <Image
-              className="md:mr-[-50px] animate-float md:w-120 lg:w-175"
+              className="md:mr-[-50px] animate-float md:w-100 lg:w-130 xl:w-175"
               src="/images/homePic3.png"
               alt="Test Your Knowledge"
               width={400}

@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[39756,["/MedTest/_next/static/chunks/ff1a16fafef87110.js","/MedTest/_next/static/chunks/7340adf74ff47ec0.js"],"default"]
 3:I[37457,["/MedTest/_next/static/chunks/ff1a16fafef87110.js","/MedTest/_next/static/chunks/7340adf74ff47ec0.js"],"default"]
-0:{"buildId":"8wquUZJxEf2y_RcqE5IKa","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"Gt9q2WrOfaQ0HkYOdHNqj","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}

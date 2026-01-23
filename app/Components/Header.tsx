@@ -16,10 +16,10 @@ export default function Header() {
           <h1 className="text-2xl font-bold">MedTEST</h1>
         </div>
         <div className="flex items-center gap-3">
-          <p className="hover:underline text-lg cursor-pointer duration-300 hover:text-gray-200">
+          <p className="hover:underline text-lg cursor-pointer duration-300">
             Log in
           </p>
-          <p className="hover:underline text-lg cursor-pointer duration-300 hover:text-gray-200">
+          <p className="hover:underline text-lg cursor-pointer duration-300">
             Sign up
           </p>
         </div>

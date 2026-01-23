@@ -10,7 +10,7 @@ export default function Page() {
   };
 
   return (
-    <div className="px-4 md:px-8 py-6 text-white rounded-xl bg-gradient-to-r from-cyan-900 to-purple-500 lg:flex lg:justify-between lg:items-center">
+    <div className="px-4 md:px-8 py-6 mb-14 text-white rounded-xl bg-gradient-to-r from-cyan-900 to-purple-500 lg:flex lg:justify-between lg:items-center">
       <div className="mb-8 lg:mb-0">
         <h1 className="font-bold text-4xl mb-4 w-80">
           Ready to Get Our New Stuff?

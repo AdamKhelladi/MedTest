@@ -4,6 +4,7 @@ import Categoreis from "./Components/Categories";
 import Image from "next/image";
 import Container from "./Components/Container/page";
 import Contact from "./Components/Contact";
+import Footer from "./Components/Footer";
 
 export default function Home() {
   return (
@@ -42,9 +43,9 @@ export default function Home() {
         </div>
 
         <Categoreis />
-
         <Contact />
       </Container>
+      <Footer />
     </div>
   );
 }

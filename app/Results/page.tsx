@@ -28,7 +28,7 @@ export default function page() {
     <div className="pt-6 bg-bray-50 min-h-screen">
       <Container2>
         <div className="rounded-lg text-white w-full">
-          <div className="mb-2 flex items-center gap-0 p-4 rounded-lg text-white w-full bg-gradient-to-r from-sky-800 to-sky-400">
+          <div className="mb-2 flex items-center gap-0 p-4 rounded-lg text-white w-full bg-gradient-to-r from-sky-900 to-cyan-400">
             <Image
               src="/images/award3.png"
               alt="MCQ Image"
@@ -39,7 +39,7 @@ export default function page() {
             <h1 className="font-bold text-3xl">MCQ Results</h1>
           </div>
 
-          <div className="mb-2 p-10 lg:px-40 rounded-lg text-white w-full bg-gradient-to-r from-sky-900 to-sky-400">
+          <div className="mb-2 p-10 lg:px-40 rounded-lg text-white w-full bg-gradient-to-r from-sky-900 to-cyan-400">
             <div className="text-8xl pb-8 font-bold flex justify-center">
               {persentScore}%
             </div>

@@ -30,7 +30,7 @@ export default function page() {
         <div className="rounded-lg text-white w-full">
           <div className="mb-2 flex items-center gap-0 p-4 rounded-lg text-white w-full bg-gradient-to-r from-sky-900 to-cyan-400">
             <Image
-              src="/images/award3.png"
+              src="/MedTest/images/award3.png"
               alt="MCQ Image"
               width={80}
               height={80}

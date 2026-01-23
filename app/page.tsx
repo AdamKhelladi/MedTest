@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Header from "./Components/Header";
 import Categoreis from "./Components/Categories";
@@ -28,7 +30,7 @@ export default function Home() {
             </div>
             <Image
               className="md:mr-[-50px] animate-float md:w-100 lg:w-130 xl:w-175"
-              src="/images/homePic3.png"
+              src="/MedTest/images/homePic3.png"
               alt="Test Your Knowledge"
               width={400}
               height={300}

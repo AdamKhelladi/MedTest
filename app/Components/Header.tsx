@@ -1,3 +1,5 @@
+"use client";
+
 import Container from "./Container/page";
 import Image from "next/image";
 
@@ -8,7 +10,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <Image
             className=""
-            src="/images/logo.png"
+            src="/MedTest/images/logo.png"
             alt="Logo"
             width={30}
             height={30}

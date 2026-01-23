@@ -1,3 +1,5 @@
+"use client";
+
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-cyan-950 to-purple-500 text-white rounded-t-lg">
@@ -6,8 +8,8 @@ export default function Footer() {
           {/* Logo */}
           <div className="mb-6 md:mb-0">
             <a href="/" className="flex items-center">
-              <img src="images/logo.png" className="h-7 me-3" alt="Logo" />
-              <span className="text-heading self-center text-2xl font-semibold whitespace-nowrap">
+              <img src="/MedTest/images/logo.png" className="h-7 md:h-10 me-3" alt="Logo" />
+              <span className="text-heading self-center text-2xl md:text-4xl font-semibold whitespace-nowrap">
                 MedTEST
               </span>
             </a>

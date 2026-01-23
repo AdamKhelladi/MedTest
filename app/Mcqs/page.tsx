@@ -1,33 +1,45 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import Container2 from "../Components/Container2/page";
 import Image from "next/image";
-
 import { Question, questionsData } from "../mcqOptions";
 import { useState, useEffect } from "react";
 import Button from "../Components/Button/page";
 import { useRouter } from "next/navigation";
 
-export default function page() {
+export default function Page() {
   const router = useRouter();
 
-  const params = useSearchParams();
+  // States for query params
+  const [category, setCategory] = useState("");
+  const [level, setLevel] = useState("");
+  const [questionsCount, setQuestionsCount] = useState(10);
 
-  const category = params.get("category") || "";
-  const level = params.get("level") || "";
-  const questionsCount = Number(params.get("questions")) || 10;
+  // Get query params only on client
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setCategory(params.get("category") || "");
+    setLevel(params.get("level") || "");
+    setQuestionsCount(Number(params.get("questions")) || 10);
+  }, []);
 
+  // MCQ questions
   const [mcqQuestions, setMcqQuestions] = useState<Question[]>([]);
 
   useEffect(() => {
-    if (questionsData[category] && questionsData[category][level]) {
+    if (
+      category &&
+      level &&
+      questionsData[category] &&
+      questionsData[category][level]
+    ) {
       const allQuestions = questionsData[category][level];
       const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
       setMcqQuestions(shuffled.slice(0, questionsCount));
     }
   }, [category, level, questionsCount]);
 
+  // Selected answers
   const [selectedAnswers, setSelectedAnswers] = useState<
     Record<number, string>
   >({});
@@ -42,9 +54,7 @@ export default function page() {
   const handleSubmit = () => {
     let score = 0;
     mcqQuestions.forEach((q, index) => {
-      if (selectedAnswers[index] === q.answer) {
-        score++;
-      }
+      if (selectedAnswers[index] === q.answer) score++;
     });
 
     router.push(
@@ -88,7 +98,11 @@ export default function page() {
                   <div
                     key={optIndex}
                     onClick={() => selectOption(qindex, option)}
-                    className={`border border-gray-300 rounded-lg p-3 mb-2 duration-400 cursor-pointer ${isSelected ? "bg-purple-300 text-black" : "bg-white hover:bg-gray-200"}`}
+                    className={`border border-gray-300 rounded-lg p-3 mb-2 duration-400 cursor-pointer ${
+                      isSelected
+                        ? "bg-purple-300 text-black"
+                        : "bg-white hover:bg-gray-200"
+                    }`}
                   >
                     {option}
                   </div>

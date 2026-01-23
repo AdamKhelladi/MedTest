@@ -5,8 +5,9 @@ import Container2 from "../Components/Container2/page";
 import Image from "next/image";
 import Button from "../Components/Button/page";
 import { useRouter } from "next/navigation";
+import { Suspense } from "react";
 
-export default function page() {
+function ResultsContent() {
   const params = useSearchParams();
   const router = useRouter();
 
@@ -64,5 +65,19 @@ export default function page() {
         </div>
       </Container2>
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center min-h-screen">
+          Loading...
+        </div>
+      }
+    >
+      <ResultsContent />
+    </Suspense>
   );
 }
